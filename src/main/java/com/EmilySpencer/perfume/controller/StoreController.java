@@ -2,8 +2,10 @@ package com.EmilySpencer.perfume.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.apache.logging.log4j.LogManager;
@@ -41,6 +43,17 @@ public class StoreController {
 		LOGGER.info("Store " + store + "has been added");
 		model.addAttribute("message", "Store" + store.getLocation() + "has been added");
 		return new ModelAndView("WEB-INF/allStores.jsp", "allStores", storeService.retrieveAll());
+	}
+	
+	@GetMapping("/EditStore/{storeId}")
+	public ModelAndView editStore(@PathVariable("storeId") Long storeId, Model model) {
+		return new ModelAndView("../WEB-INF/editStore.jsp", "store", storeService.findAStore(storeId));
+	}
+
+	@PostMapping("/EditStoreSubmit")
+	public ModelAndView editAuthorSubmit(Store store, ModelMap model) {
+		storeService.update(store);
+		return new ModelAndView("forward://WEB-INF/allStores.jsp", "allStores", storeService.retrieveAll());
 	}
 
 }
