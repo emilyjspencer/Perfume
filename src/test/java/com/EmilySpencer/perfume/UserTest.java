@@ -42,6 +42,15 @@ class UserTest {
 		User userFromDb = userService.findAUser(userId).get();
 		assertEquals(user, userFromDb);
 	}
+	
+	@Test
+	void test_ThatAllUsersCanBeRetrieved_FromTheDatabase() {
+		int numberOfUsersBeforeCreatingNewUser = userService.retrieveAll().size();
+		User user4 = new User("Sam", "Smith", 20, "30 Elizabeth Gardens", 3833837, "sam", "sam3", "sam@smith.com", false);
+		userService.create(user4);
+		int numberAfterAdding = userService.retrieveAll().size();
+		assertNotEquals(numberOfUsersBeforeCreatingNewUser, numberAfterAdding);
+	}
 
 
 }
