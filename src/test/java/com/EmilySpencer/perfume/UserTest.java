@@ -27,5 +27,11 @@ class UserTest {
 		int numberAfterCreationOfInvalidUser = userService.retrieveAll().size();
 		assertNotEquals(numberBeforeCreation, numberAfterCreationOfInvalidUser);
 	}
+	
+	@Test
+	void testThatAUserCanBeRetrievedByTheirUsernameAndPassword() {
+		User userFromDb = userService.getByUsernameAndPassword("adminemily", "javascript");
+		assertTrue(userFromDb.getUserId() > 0);
+	}
 
 }
