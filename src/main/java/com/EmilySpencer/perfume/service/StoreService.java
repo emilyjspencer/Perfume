@@ -1,10 +1,11 @@
 package com.EmilySpencer.perfume.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.EmilySpencer.perfume.model.Store;
-import com.EmilySpencer.perfume.model.User;
 import com.EmilySpencer.perfume.repository.StoreDao;
 
 @Service
@@ -15,5 +16,9 @@ public class StoreService {
 
 	public void create(Store store) {
 		storeDao.save(store);
+	}
+
+	public Optional<Store> findAStore(long storeId) {
+			return storeDao.findById(storeId);
 	}
 }

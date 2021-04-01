@@ -1,6 +1,7 @@
 package com.EmilySpencer.perfume;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,13 @@ public class StoreTest {
 		storeService.create(store);
 		assertTrue(store.getStoreId() > 0);
 	}
+	
+	@Test
+	void test_ThatAStoreCanBeRetrievedById() {
+		Store storeFromDb = storeService.findAStore(3).get();
+		assertEquals(3, storeFromDb.getStoreId());
+	}
+
+	
 
 }
