@@ -17,5 +17,10 @@ public class StoreController {
 	public ModelAndView allStores() {
 		return new ModelAndView("WEB-INF/allStores.jsp", "allStores", storeService.retrieveAll());
 	}
+	
+	@GetMapping("/AllStoresCustomer")
+	public ModelAndView allStoresCustomer() {
+		return new ModelAndView("WEB-INF/allStoresCustomer.jsp", "allStores", storeService.retrieveAll());
+	}
 
 }
