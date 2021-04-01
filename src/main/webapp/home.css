@@ -1,0 +1,149 @@
+h1 {
+	color: white;
+	text-align: center;
+	height: 200px;
+	font-family: Dancing Script;
+	font-size: 60px;
+	padding: 10px;
+	position: relative;
+	top: 40px;
+}
+
+#Contact Us {
+	float: left;
+}
+
+
+#chanel {
+	width: 1000px;
+	height: 800px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+
+ .banner {
+	background-color: black;
+ }
+ 
+ .footer {
+ display: flex;
+ flex-direction: row;
+ background-color: black;
+ height: 300px;
+ color: white;
+ font-size: 30px;
+ }
+ 
+ #socials {
+ float: right;
+ position: absolute;
+ right: 60px;
+ }
+ 
+ 
+ img {
+ width: 200px;
+ height: 200px;
+ }
+ 
+ .login {
+ height: 100px;
+ font-size: 20px;
+ }
+ 
+ .fa-linkedin {
+ font-size: 60px;
+ }
+ 
+ .fa-twitter-square {
+ font-size: 60px;
+ }
+ 
+ .fa-instagram {
+ font-size: 60px;
+ }
+ 
+ .fa-facebook {
+ font-size: 60px;
+ }
+ 
+ .leftColumn {
+   background-color: black;
+   width: 100px;
+   height: 100%;
+ }
+ 
+ .middleColumn {
+   width: 90%;
+   height: 100%;
+ }
+ 
+ .rightColumn {
+ background-color: black;
+ width: 100px;
+ height: 100%;
+ }
+ 
+ .columnsContainer {
+   display: flex;
+   flex-direction: row;
+ }
+ 
+ p {
+ text-align: center
+ }
+ 
+ h2 {
+ text-align: center;
+ }
+ 
+ nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+a {
+  font-size: 15px;
+  margin: 20px;
+  text-decoration: none;
+  color: #95a5a6;
+  font-family: roboto;
+  border-bottom: 1px solid #52c9aa;
+  transition: color 0.75s ease-in-out;
+}
+
+a:hover {
+  color: #e974bc;
+  border-bottom-color: #4d0730;
+}
+
+i {
+  margin-right: 10px;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    background: #cc8db4;
+  }
+  a {
+    color: white;
+  }
+}
+
+
+@media screen and (max-width: 920px) {
+    nav {
+      justify-content: center;
+    }
+    a {
+      font-size: 26px;
+    }
+  }

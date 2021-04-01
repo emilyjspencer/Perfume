@@ -6,4 +6,6 @@ import com.EmilySpencer.perfume.model.User;
 
 public interface UserDao extends JpaRepository<User, Long> {
 
+	User getByUsernameAndPassword(String username, String password);
+
 }

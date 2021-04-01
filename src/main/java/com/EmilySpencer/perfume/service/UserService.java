@@ -21,4 +21,9 @@ public class UserService {
 	public List<User> retrieveAll() {
 		return userDao.findAll();
 	}
+
+	public User getByUsernameAndPassword(String username, String password) {
+		return userDao.getByUsernameAndPassword(username, password);
+	}
+
 }
