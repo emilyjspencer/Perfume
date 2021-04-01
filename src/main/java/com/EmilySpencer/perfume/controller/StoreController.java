@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,6 +54,17 @@ public class StoreController {
 	@PostMapping("/EditStoreSubmit")
 	public ModelAndView editAuthorSubmit(Store store, ModelMap model) {
 		storeService.update(store);
+		return new ModelAndView("forward://WEB-INF/allStores.jsp", "allStores", storeService.retrieveAll());
+	}
+	
+	@PostMapping(value = "/EditStoreSubmit", params = { "Delete=Delete" })
+	public ModelAndView editStoreSubmit(Store store, BindingResult bindingResult, ModelMap model, Long storeId) {
+		if (bindingResult.hasErrors()) {
+			model.addAttribute("message", "this store still has perfumes in the stores");
+			return new ModelAndView("WEB-INF/editStore.jsp");
+		}
+		storeService.delete(storeId);
+		model.addAttribute("message", "the store was deleted");
 		return new ModelAndView("forward://WEB-INF/allStores.jsp", "allStores", storeService.retrieveAll());
 	}
 
