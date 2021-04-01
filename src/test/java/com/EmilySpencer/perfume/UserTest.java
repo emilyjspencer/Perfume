@@ -33,5 +33,15 @@ class UserTest {
 		User userFromDb = userService.getByUsernameAndPassword("adminemily", "javascript");
 		assertTrue(userFromDb.getUserId() > 0);
 	}
+	
+	@Test
+	void test_ThatAUserCanBeRetrievedByTheirId() {
+		User user = new User("Mary", "Jones", 55, "6 Merton Road", 8765438, "mary", "python", "mary@jones.com", true);
+		userService.create(user);
+		long userId = user.getUserId();
+		User userFromDb = userService.findAUser(userId).get();
+		assertEquals(user, userFromDb);
+	}
+
 
 }
