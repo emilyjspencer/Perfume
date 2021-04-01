@@ -39,7 +39,16 @@ public class StoreTest {
 		storeService.create(store);
 		int numberOfStoresAfter = storeService.retrieveAll().size();
 		assertNotEquals(numberOfStoresAfter, numberOfStoresBefore);
-
+	}
+	
+	@Test
+	void testThatAStoreCanBeDeleted() {
+		Store storeToDelete = storeService.findAStore(7).get();
+		long storeId = storeService.findAStore(storeToDelete.getStoreId()).get().getStoreId();
+		int numberOfStoresBeforeDeleting = storeService.retrieveAll().size();
+		storeService.delete(storeId);
+		int numberOfStoresAfterDeleting = storeService.retrieveAll().size();
+		assertNotEquals(numberOfStoresAfterDeleting, numberOfStoresBeforeDeleting);	
 	}
 
 }

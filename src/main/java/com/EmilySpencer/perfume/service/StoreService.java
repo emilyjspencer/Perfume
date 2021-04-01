@@ -26,4 +26,8 @@ public class StoreService {
 	public List<Store> retrieveAll() {
 		return storeDao.findAll();
 	}
+
+	public void delete(long storeId) {
+		storeDao.deleteById(storeId);	
+	}
 }
