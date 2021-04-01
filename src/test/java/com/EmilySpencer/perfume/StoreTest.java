@@ -50,5 +50,18 @@ public class StoreTest {
 		int numberOfStoresAfterDeleting = storeService.retrieveAll().size();
 		assertNotEquals(numberOfStoresAfterDeleting, numberOfStoresBeforeDeleting);	
 	}
+	
+	@Test
+	void test_ThatAStoresInformationCanBeUpdated() {
+		Store store = new Store();
+		String nameBeforeStoreInformationIsUpdated = store.getLocation();
+		storeService.create(store);
+		Store storeToUpdate = storeService.findAStore(1).get();
+		storeToUpdate.setLocation("Trinity Leeds");
+		storeService.update(storeToUpdate);
+		Store updatedStore = storeService.findAStore(1).get();
+		String nameAfterStoreInformationIsUpdated = updatedStore.getLocation();
+		assertNotEquals(nameBeforeStoreInformationIsUpdated, nameAfterStoreInformationIsUpdated);	
+	}
 
 }

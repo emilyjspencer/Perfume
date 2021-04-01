@@ -30,4 +30,8 @@ public class StoreService {
 	public void delete(long storeId) {
 		storeDao.deleteById(storeId);	
 	}
+
+	public void update(Store store) {
+		storeDao.save(store);
+	}
 }
