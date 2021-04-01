@@ -1,5 +1,6 @@
 package com.EmilySpencer.perfume.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,9 @@ public class StoreService {
 
 	public Optional<Store> findAStore(long storeId) {
 			return storeDao.findById(storeId);
+	}
+
+	public List<Store> retrieveAll() {
+		return storeDao.findAll();
 	}
 }
