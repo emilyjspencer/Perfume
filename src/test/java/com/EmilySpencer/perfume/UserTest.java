@@ -51,6 +51,16 @@ class UserTest {
 		int numberAfterAdding = userService.retrieveAll().size();
 		assertNotEquals(numberOfUsersBeforeCreatingNewUser, numberAfterAdding);
 	}
+	
+	@Test
+	void test_ThatAUserCanBeDeleted() {
+		int numberBeforeDeletion = userService.retrieveAll().size();
+		long userIdToDelete = 2;
+		userService.delete(userIdToDelete);
+		int numberAfterDeletion = userService.retrieveAll().size(); 
+		assertNotEquals(numberAfterDeletion, numberBeforeDeletion);
+	}
+
 
 
 }

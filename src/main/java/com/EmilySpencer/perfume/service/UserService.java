@@ -40,6 +40,15 @@ public class UserService {
 		return user;
 	}
 
+	public boolean delete(long userId) {
+		if (findAUser(userId).isPresent()) {
+			userDao.deleteById(userId);		
+			return true;
+		}
+		return false;
+	}
+
+
 
 
 }
