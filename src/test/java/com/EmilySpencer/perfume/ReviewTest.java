@@ -1,5 +1,6 @@
 package com.EmilySpencer.perfume;
 
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -26,6 +27,17 @@ public class ReviewTest {
 		Review review = new Review();
 		reviewService.create(review);
 		assertTrue(review.getReviewId() > 0);
+	}
+	
+	@Test
+	void test_ThatAllReviewsCanBeRetrieved() {
+		int numberBeforeAdding = reviewService.retrieveAll().size();
+		Review review = new Review();
+	    reviewService.create(review);
+		Review review2 = new Review();
+		reviewService.create(review2);
+		int numberAfterAdding = reviewService.retrieveAll().size();
+		assertNotEquals(numberAfterAdding, numberBeforeAdding);
 	}
 
 }

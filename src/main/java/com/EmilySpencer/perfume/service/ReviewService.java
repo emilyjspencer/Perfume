@@ -1,5 +1,7 @@
 package com.EmilySpencer.perfume.service;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +31,9 @@ public class ReviewService {
 		} else {
 			reviewDao.save(review);
 		}
+	}
+	
+	public List<Review> retrieveAll() {
+		return reviewDao.findAll();
 	}
 }
