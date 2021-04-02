@@ -17,3 +17,87 @@ insert into store (storeId, name, location, phone) values (STORE_SEQ.nextval, 'P
 insert into store(storeId, name, location, phone) values (STORE_SEQ.nextval, 'Perfect Perfumes Manchester Arndale', 'Manchester Arndale', 58493049);
 
 insert into store(storeId, name, location, phone) values (STORE_SEQ.nextval, 'Perfect Perfumes Kingston Bentalls Centre', 'Kingston', 58493049);
+
+insert into perfume (perfumeId, name, price, description, volume, yearReleased, brandid) values (PERFUME_SEQ.nextval, 'COCO MADEMOISELLE', 67.00, 'An oriental fragrance with a strong personality, yet surprisingly fresh', 50, 2001, 1);
+
+insert into perfume (perfumeId, name, price, description, volume, yearReleased, brandid) values (PERFUME_SEQ.nextval, 'Daisy', 59.00, 'Daisy is a sparkly floral-woody fragrance, fresh and feminine at the same time', 50, 2008, 4);
+
+
+insert into perfume(perfumeId, name, price, description, volume, yearReleased, brandid) values (PERFUME_SEQ.nextval, 'Midnight Fantasy', 20.00, 'In the top notes there are exotic framboise, black cherry, and plum', 100, 2006, 3);
+
+insert into perfume(perfumeId, name, price, description, volume, yearReleased, brandid) values (PERFUME_SEQ.nextval, 'Daisy Dream Forever', 57.93, 'Daisy Dream Forever is inspired by endless blue sky', 50, 2017, 4);
+
+insert into perfume(perfumeId, name, price, description, volume, yearReleased, brandid) values (PERFUME_SEQ.nextval, 'Fantasia', 29.95, 'Fantasias woodsy and floral fragrance conjures up sensuality, femininity, and mystery', 30, 2017, 6);
+
+
+insert into perfume(perfumeId, name, price, description, volume, yearReleased, brandid) values (PERFUME_SEQ.nextval, 'Bombshell', 69.37, 'Bombshell is a sparkling mix of fresh-cut peonies and afternoon sun', 100, 2010, 9);
+
+insert into perfume(perfumeId, name, price, description, volume, yearReleased, brandid) values (PERFUME_SEQ.nextval, 'Love', 69.37, 'A fresh fusion of aromatic Juniper Berries. Apricot Blush, a petally floral', 100, 2017, 9);
+
+insert into perfume(perfumeId, name, price, description, volume, yearReleased, brandid) values (PERFUME_SEQ.nextval, 'My Burberry Blush', 62.05, 'A blend of glazed pomegranate and vibrant lemon, and delicate rose petal notes', 50, 2014, 12);
+
+insert into perfume(perfumeId, name, price, description, volume, yearReleased, brandid) values (PERFUME_SEQ.nextval, 'Le Classique', 76.50, 'A wonderful mix of of Bergamot, rose, pear, star anise, mandarin orange, and orange blossom', 100, 1993, 8);
+
+insert into perfume(perfumeId, name, price, description, volume, yearReleased, brandid) values (PERFUME_SEQ.nextval, 'Olympéa Eau de Parfum', 70.50, 'A fresh oriental fragrance whose balance of the accords forms a genuine Paco Rabanne signature.', 80, 2015, 2);
+
+insert into perfume(perfumeId, name, price, description, volume, yearReleased, brandid) values (PERFUME_SEQ.nextval, 'Woman', 30.60, 'A fruity floral fragrance with an unconventional boyish twist with Boysenberry, Mandarin, Iris, Black tea, Sandalwood, Cedarwood', 50, 2014, 5);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (1,1);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (1,3);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (1,5);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (2,2);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (2,3);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (3,4);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (3,5);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (3,1);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (3,1);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (4,2);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (4,3);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (5,2);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (5,6);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (6,4);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (6,1);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (6,2);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (7,5);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (7,2);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (8,1);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (8,3);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (8,5);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (9,1);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (9,6);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (9,3);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (10,4);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (10,5);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (10,6);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (11,5);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (11,2);
+
+insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (11,3);
