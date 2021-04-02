@@ -3,6 +3,8 @@ package com.EmilySpencer.perfume;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -38,6 +40,13 @@ public class ReviewTest {
 		reviewService.create(review2);
 		int numberAfterAdding = reviewService.retrieveAll().size();
 		assertNotEquals(numberAfterAdding, numberBeforeAdding);
+	}
+	
+	@Test
+	void test_ThatAllReviewsForAParticularPerfumeCanBeRetrieved() {
+		List<Review> reviews = reviewService.retrieveAllForParticularPerfume(1);
+		System.out.println(reviews);
+		assertTrue(reviews.size() == 3);
 	}
 
 }

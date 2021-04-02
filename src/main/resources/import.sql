@@ -46,6 +46,13 @@ insert into perfume(perfumeId, name, price, description, volume, yearReleased, b
 
 insert into perfume(perfumeId, name, price, description, volume, yearReleased, brandid) values (PERFUME_SEQ.nextval, 'Woman', 30.60, 'A fruity floral fragrance with an unconventional boyish twist with Boysenberry, Mandarin, Iris, Black tea, Sandalwood, Cedarwood', 50, 2014, 5);
 
+insert into Review (reviewId, title, body, dateOfReview, userId, perfumeId) values (REVIEW_SEQ.nextval, 'What a product!', 'I love this perfume, it smells so good', TO_DATE('2000/01/01', 'yyyy/mm/dd'), 1, 1);
+
+insert into Review (reviewId, title, body, dateOfReview, userId, perfumeId) values (REVIEW_SEQ.nextval, 'Fabulous', 'Smells lush', TO_DATE('2000/01/01', 'yyyy/mm/dd'), 2, 1);
+
+insert into Review (reviewId, title, body, dateOfReview, userId, perfumeId) values (REVIEW_SEQ.nextval, 'Brilliant', 'I will be buying this for my best friend', TO_DATE('2000/01/01', 'yyyy/mm/dd'), 3, 1);
+
+
 insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (1,1);
 
 insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (1,3);

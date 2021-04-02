@@ -36,4 +36,8 @@ public class ReviewService {
 	public List<Review> retrieveAll() {
 		return reviewDao.findAll();
 	}
+	
+	public List<Review> retrieveAllForParticularPerfume(long perfumeId) {
+        return reviewDao.getReviewsForPerfume(perfumeId);
+	}
 }
