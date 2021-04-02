@@ -60,6 +60,17 @@ class UserTest {
 		int numberAfterDeletion = userService.retrieveAll().size(); 
 		assertNotEquals(numberAfterDeletion, numberBeforeDeletion);
 	}
+	
+	@Test
+	void test_ThatACustomerUserMustBe13ToCreateAnAccount() {
+		int numberBeforeCreation = userService.retrieveAll().size();
+		User user = new User("Laura", "Jones", 12, "14 The Avenue", 3837482, "laurajane", "flower",
+				"laura@jane.com, true", true);
+		userService.create(user);
+		int numberAfterCreationOfInvalidUser = userService.retrieveAll().size();
+		assertEquals(numberBeforeCreation, numberAfterCreationOfInvalidUser);
+	}
+
 
 
 

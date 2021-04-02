@@ -21,7 +21,13 @@ public class UserService {
 	private UserDao userDao;
 
 	public void create(User user) {
+		createUser: {
+			if (user.getAge() < 13) {
+				LOGGER.error("Unable to create account. Users users must be over 13 and over");
+				break createUser;
+			}
 		userDao.save(user);
+		}
 	}
 
 	public List<User> retrieveAll() {
