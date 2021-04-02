@@ -52,6 +52,15 @@ insert into Review (reviewId, title, body, dateOfReview, userId, perfumeId) valu
 
 insert into Review (reviewId, title, body, dateOfReview, userId, perfumeId) values (REVIEW_SEQ.nextval, 'Brilliant', 'I will be buying this for my best friend', TO_DATE('2000/01/01', 'yyyy/mm/dd'), 3, 1);
 
+insert into Basket (basketId, userId) values (BASKET_SEQ.nextval, 1);
+
+insert into Basket (basketId, userId) values (BASKET_SEQ.nextval, 3);
+
+insert into Basket (basketId, userId) values (BASKET_SEQ.nextval, 4);
+
+insert into Basket (basketId, userId) values (BASKET_SEQ.nextval, 2);
+
+insert into Basket (basketId, userId) values (BASKET_SEQ.nextval, 5);
 
 insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (1,1);
 

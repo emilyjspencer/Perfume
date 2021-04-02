@@ -1,5 +1,7 @@
 package com.EmilySpencer.perfume.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +22,8 @@ public class BasketService {
 	public void create(Basket basket) {
 		basketDao.save(basket);
 	}
-
+	
+	public Optional<Basket> findABasket(long basketId) {
+		return basketDao.findById(basketId);
+	}
 }

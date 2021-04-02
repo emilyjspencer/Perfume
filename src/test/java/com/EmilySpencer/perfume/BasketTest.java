@@ -23,5 +23,11 @@ public class BasketTest {
 		basketService.create(basket);
 		assertTrue(basket.getBasketId() > 0);
 	}
+	
+	@Test
+	void test_ThatABasketCanBeRetrievedUsingTheId() {
+		Basket basketFromDb = basketService.findABasket(1).get();
+		assertEquals(basketFromDb.getBasketId(), 1);
+	}
 
 }
