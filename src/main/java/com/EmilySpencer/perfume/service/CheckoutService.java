@@ -31,4 +31,9 @@ public class CheckoutService {
 	public List<Checkout> retrieveAll() {
 		return checkoutDao.findAll();
 	}
+	
+	public void delete(long checkoutId) {
+		checkoutDao.deleteById(checkoutId);
+	}
+
 }

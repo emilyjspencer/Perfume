@@ -46,4 +46,14 @@ public class CheckoutTest {
 		checkoutList = checkoutService.retrieveAll();
 		assertTrue(checkoutList.size() > 0);
 	}
+	
+	@Test
+	void test_ThatACheckoutCanBeDeleted() {
+		int numberBeforeDeleting = checkoutService.retrieveAll().size();
+		Checkout checkoutToDelete = checkoutService.findACheckout(4).get();
+		long checkoutId = checkoutToDelete.getCheckoutId();
+		checkoutService.delete(checkoutId);
+		int numberAfterDeleting = checkoutService.retrieveAll().size();
+		assertNotEquals(numberBeforeDeleting, numberAfterDeleting);
+	}
 }
