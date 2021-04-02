@@ -12,8 +12,10 @@ import org.springframework.test.annotation.DirtiesContext;
 
 import com.EmilySpencer.perfume.model.Basket;
 import com.EmilySpencer.perfume.model.Perfume;
+import com.EmilySpencer.perfume.model.User;
 import com.EmilySpencer.perfume.service.BasketService;
 import com.EmilySpencer.perfume.service.PerfumeService;
+import com.EmilySpencer.perfume.service.UserService;
 
 @SpringBootTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
@@ -24,6 +26,9 @@ public class BasketTest {
 	
 	@Autowired
 	private PerfumeService perfumeService;
+	
+	@Autowired
+	private UserService userService;
 	
 	List<Basket> basketList = new ArrayList<Basket>();
 	
@@ -78,6 +83,20 @@ public class BasketTest {
 		basketService.create(basket);
 		List<Perfume> perfumes = basketService.getBasketsPerfumes(basket);
 		assertEquals(0, perfumes.size());
+	}
+	
+	@Test
+	void test_ThatGetBasketsPerfumes_CalledOnBasket3Returns4Perfumes() {
+		Basket basketRetrievedFromDb = basketService.findABasket(3).get();
+		List<Perfume> perfumes = basketService.getBasketsPerfumes(basketRetrievedFromDb);
+		assertEquals(4, perfumes.size());
+	}
+	
+	@Test
+	void test_ThatABasketCanBeFoundByUser() {
+		User userRetrievedFromDb = userService.findAUser(3).get();
+		Basket basketFromDb = basketService.getByUser(userRetrievedFromDb);
+		assertTrue(basketFromDb.getBasketId() > 0);
 	}
 
 

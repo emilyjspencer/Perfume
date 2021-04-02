@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.EmilySpencer.perfume.model.Basket;
 import com.EmilySpencer.perfume.model.Perfume;
+import com.EmilySpencer.perfume.model.User;
 import com.EmilySpencer.perfume.repository.BasketDao;
 
 @Service
@@ -45,5 +46,9 @@ public class BasketService {
 		long basketId = basket.getBasketId();
 		List<Perfume> perfumesInTheBasket = findABasket(basketId).get().getPerfumes();
 		return perfumesInTheBasket;
+	}
+	
+	public Basket getByUser(User user) {
+		return basketDao.getByUser(user);
 	}
 }
