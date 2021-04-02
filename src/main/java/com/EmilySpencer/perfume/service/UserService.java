@@ -3,20 +3,19 @@ package com.EmilySpencer.perfume.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.EmilySpencer.perfume.model.User;
 import com.EmilySpencer.perfume.repository.UserDao;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 
 @Service
 public class UserService {
-	
+
 	private final static Logger LOGGER = LogManager.getLogger(UserService.class);
-	
+
 	@Autowired
 	private UserDao userDao;
 
@@ -26,7 +25,7 @@ public class UserService {
 				LOGGER.error("Unable to create account. Users users must be over 13 and over");
 				break createUser;
 			}
-		userDao.save(user);
+			userDao.save(user);
 		}
 	}
 
@@ -48,13 +47,18 @@ public class UserService {
 
 	public boolean delete(long userId) {
 		if (findAUser(userId).isPresent()) {
-			userDao.deleteById(userId);		
+			userDao.deleteById(userId);
 			return true;
 		}
 		return false;
 	}
 
-
-
+	public boolean checkIfAdmin(User user) {
+		if (user.isCustomerUser()) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 
 }

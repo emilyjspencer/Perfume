@@ -70,6 +70,22 @@ class UserTest {
 		int numberAfterCreationOfInvalidUser = userService.retrieveAll().size();
 		assertEquals(numberBeforeCreation, numberAfterCreationOfInvalidUser);
 	}
+	
+	@Test
+	void test_ThatUserCanBeRecognisedAsAdmin() {
+		User user = new User("Mary", "Woodruff", 40, "40 The Vale", 95838483, "mary", "flower", "mary@flower.com",
+				false);
+		userService.create(user);
+		assertTrue(userService.checkIfAdmin(user));
+	}
+
+	@Test
+	void test_ThatTheUserCanBeRecognisedAsCustomer() {
+		User user = new User("Ronald", "Weasley", 50, "The Burrow", 3847473, "ron", "magic", "ronald@weasley.com",
+				true);
+		userService.create(user);
+		assertFalse(userService.checkIfAdmin(user));
+	}
 
 
 
