@@ -60,6 +60,17 @@ public class BasketTest {
 		List<Perfume> perfumesAfterUpdate = updatedBasket.getPerfumes();
 		assertNotEquals(perfumesBeforeUpdate, perfumesAfterUpdate);
 	}
+	
+	@Test
+	void testThatABasketCanBeDeleted() {
+		Basket basket = new Basket();
+		basketService.create(basket);
+		long basketId = basketService.findABasket(basket.getBasketId()).get().getBasketId();
+		int numberBeforeDelete = basketService.retrieveAll().size();
+		basketService.delete(basketId);
+		int numAfterDeleting = basketService.retrieveAll().size();
+		assertNotEquals(numberBeforeDelete, numAfterDeleting);
+	}
 
 
 }

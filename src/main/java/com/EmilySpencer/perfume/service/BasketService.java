@@ -35,4 +35,8 @@ public class BasketService {
 	public void update(Basket basket) {
 		basketDao.save(basket);
 	}
+	
+	public void delete(long basketId) {
+		basketDao.deleteById(basketId);
+	}
 }
