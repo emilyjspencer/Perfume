@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.EmilySpencer.perfume.model.Basket;
+import com.EmilySpencer.perfume.model.Perfume;
 import com.EmilySpencer.perfume.repository.BasketDao;
 
 @Service
@@ -38,5 +39,11 @@ public class BasketService {
 	
 	public void delete(long basketId) {
 		basketDao.deleteById(basketId);
+	}
+	
+	public List<Perfume> getBasketsPerfumes(Basket basket) {
+		long basketId = basket.getBasketId();
+		List<Perfume> perfumesInTheBasket = findABasket(basketId).get().getPerfumes();
+		return perfumesInTheBasket;
 	}
 }

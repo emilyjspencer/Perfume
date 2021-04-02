@@ -71,6 +71,14 @@ public class BasketTest {
 		int numAfterDeleting = basketService.retrieveAll().size();
 		assertNotEquals(numberBeforeDelete, numAfterDeleting);
 	}
+	
+	@Test
+	void test_ThatGetPerfumesReturnsNoPerfumesIfNoPerfumesHaveBeenAddedToBasket() {
+		Basket basket = new Basket();
+		basketService.create(basket);
+		List<Perfume> perfumes = basketService.getBasketsPerfumes(basket);
+		assertEquals(0, perfumes.size());
+	}
 
 
 }
