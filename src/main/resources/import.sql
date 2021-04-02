@@ -121,3 +121,23 @@ insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (11,5);
 insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (11,2);
 
 insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (11,3);
+
+insert into basket_perfume (Basket_basketId, Perfumes_perfumeId) values (1,1);
+
+insert into basket_perfume (Basket_basketId, Perfumes_perfumeId) values (1,6);
+
+insert into basket_perfume (Basket_basketId, Perfumes_perfumeId) values (2,1);
+
+insert into basket_perfume (Basket_basketId, Perfumes_perfumeId) values (2,2);
+
+insert into basket_perfume (Basket_basketId, Perfumes_perfumeId) values (2,3);
+
+insert into basket_perfume (Basket_basketId, Perfumes_perfumeId) values (2,4);
+
+insert into basket_perfume (Basket_basketId, Perfumes_perfumeId) values (3,1);
+
+insert into basket_perfume (Basket_basketId, Perfumes_perfumeId) values (3,7);
+
+insert into basket_perfume (Basket_basketId, Perfumes_perfumeId) values (3,8);
+
+insert into basket_perfume (Basket_basketId, Perfumes_perfumeId) values (3,9);

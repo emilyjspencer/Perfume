@@ -11,7 +11,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 
 import com.EmilySpencer.perfume.model.Basket;
+import com.EmilySpencer.perfume.model.Perfume;
 import com.EmilySpencer.perfume.service.BasketService;
+import com.EmilySpencer.perfume.service.PerfumeService;
 
 @SpringBootTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
@@ -20,7 +22,12 @@ public class BasketTest {
 	@Autowired
 	private BasketService basketService;
 	
+	@Autowired
+	private PerfumeService perfumeService;
+	
 	List<Basket> basketList = new ArrayList<Basket>();
+	
+	List<Perfume> perfumesList = new ArrayList<Perfume>();
 
 	@Test
 	void test_ThatABasketCanBeCreated() {
@@ -39,6 +46,19 @@ public class BasketTest {
 	void test_ThatAllBasketsCanBeRetrieved() {
 		basketList = basketService.retrieveAll();
 		assertTrue(basketList.size() > 0);
+	}
+	
+	@Test
+	void test_ThatPerfumesCanBeAddedToBasket() {
+		Basket basketToUpdate = basketService.findABasket(2).get();
+		List<Perfume> perfumesBeforeUpdate = basketToUpdate.getPerfumes();
+		Perfume perfume = perfumeService.retrieveOne(5).get();
+		perfumesList.add(perfume);
+		basketToUpdate.setPerfumes(perfumesList);
+		basketService.update(basketToUpdate);
+		Basket updatedBasket = basketService.findABasket(2).get();
+		List<Perfume> perfumesAfterUpdate = updatedBasket.getPerfumes();
+		assertNotEquals(perfumesBeforeUpdate, perfumesAfterUpdate);
 	}
 
 

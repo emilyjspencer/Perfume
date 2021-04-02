@@ -31,4 +31,8 @@ public class BasketService {
 	public List<Basket> retrieveAll() {
 		return basketDao.findAll();
 	}
+	
+	public void update(Basket basket) {
+		basketDao.save(basket);
+	}
 }
