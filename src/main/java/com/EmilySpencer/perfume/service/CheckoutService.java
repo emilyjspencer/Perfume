@@ -1,5 +1,8 @@
 package com.EmilySpencer.perfume.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +22,13 @@ public class CheckoutService {
 
 	public void create(Checkout checkout) {
 		checkoutDao.save(checkout);
+	}
+	
+	public Optional<Checkout> findACheckout(long checkoutId) {
+		return checkoutDao.findById(checkoutId);
+	}
+
+	public List<Checkout> retrieveAll() {
+		return checkoutDao.findAll();
 	}
 }

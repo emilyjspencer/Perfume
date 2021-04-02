@@ -62,6 +62,14 @@ insert into Basket (basketId, userId) values (BASKET_SEQ.nextval, 2);
 
 insert into Basket (basketId, userId) values (BASKET_SEQ.nextval, 5);
 
+insert into Checkout (checkoutId, basketId) values (CHECKOUT_SEQ.nextval, 1);
+
+insert into Checkout (checkoutId, basketId) values (CHECKOUT_SEQ.nextval, 2);
+
+insert into Checkout (checkoutId, basketId) values (CHECKOUT_SEQ.nextval, 3);
+
+insert into Checkout (checkoutId, basketId) values (CHECKOUT_SEQ.nextval, 4);
+
 insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (1,1);
 
 insert into perfume_store(Perfume_perfumeId, Stores_storeId) values (1,3);

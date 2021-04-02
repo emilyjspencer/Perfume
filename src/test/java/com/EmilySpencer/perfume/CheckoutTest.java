@@ -1,6 +1,10 @@
 package com.EmilySpencer.perfume;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,6 +24,8 @@ public class CheckoutTest {
 
 	@Autowired
 	private CheckoutService checkoutService;
+	
+	List<Checkout> checkoutList = new ArrayList<Checkout>();
 
 	@Test
 	void test_ThatACheckoutCanBeCreated() {
@@ -27,5 +33,17 @@ public class CheckoutTest {
 		Checkout checkout = new Checkout(basket);
 		checkoutService.create(checkout);
 		assertTrue(checkout.getCheckoutId() > 0);
+	}
+	
+	@Test
+	void test_ThatACheckoutCanBeRetrievedUsingId() {
+		Checkout checkout = checkoutService.findACheckout(3).get();
+		assertEquals(3, checkout.getCheckoutId());
+	}
+
+	@Test
+	void test_ThatAllCheckoutsCanBeRetrieved() {
+		checkoutList = checkoutService.retrieveAll();
+		assertTrue(checkoutList.size() > 0);
 	}
 }
