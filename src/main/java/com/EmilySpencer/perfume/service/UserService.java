@@ -25,6 +25,13 @@ public class UserService {
 				LOGGER.error("Unable to create account. Users users must be over 13 and over");
 				break createUser;
 			}
+			int cardNumber = user.getCardNumber();
+			String number = String.valueOf(cardNumber);
+			char[] digits1 = number.toCharArray();
+			if (digits1.length != 7) {
+				LOGGER.error("Unable to create account. Invalid card number");
+				break createUser;
+			}
 			userDao.save(user);
 		}
 	}

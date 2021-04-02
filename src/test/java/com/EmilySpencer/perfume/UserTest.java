@@ -86,6 +86,16 @@ class UserTest {
 		userService.create(user);
 		assertFalse(userService.checkIfAdmin(user));
 	}
+	
+	@Test
+	void testThatAUserCanOnlyBeCreatedIfCardNumberIsValid() {
+		int numberOfUsersBeforeCreation = userService.retrieveAll().size(); 
+		User user = new User("Lucinda", "Hazel", 30, "The Woodland Gardens", 8375, "lucinda", "lucinda90",
+				"lucinda@hazel.com", true);
+		userService.create(user);
+		int numberOfUsersAfterCreationOfInvalidUser = userService.retrieveAll().size(); 
+		assertEquals(numberOfUsersBeforeCreation, numberOfUsersAfterCreationOfInvalidUser);
+	}
 
 
 
