@@ -2,7 +2,11 @@ insert into User(userId, firstName, lastName, age, address, cardNumber, username
 
 insert into User(userId, firstName, lastName, age, address, cardNumber, username, password, email, customerUser) values (USER_SEQ.nextval, 'John', 'Jones', 20, '10 Harrow Vale', 2938345, 'jonny', 'ruby', 'jonny@jones.com', true);
 
-insert into User(userId, firstName, lastName, age, address, cardNumber, username, password, email, customerUser) values (USER_SEQ.nextval, 'Emily', 'Thomas', 24, '89 Cherrytree Lane', 2938345, 'adminemily', 'javascript', 'emily@thomas.com', false);
+insert into User(userId, firstName, lastName, age, address, cardNumber, username, password, email, customerUser) values (USER_SEQ.nextval, 'Billy', 'Rose', 28, '29 Green Street', 4823242, 'billy', 'javascript', 'billy@rose.com', true);
+
+insert into User(userId, firstName, lastName, age, address, cardNumber, username, password, email, customerUser) values (USER_SEQ.nextval, 'Emily', 'Jackson', 39, '83 Flower Crescent', 3893890, 'adminemily', 'athenahack', 'emily@jackson.com', false);
+
+insert into User(userId, firstName, lastName, age, address, cardNumber, username, password, email, customerUser) values (USER_SEQ.nextval, 'James', 'Fisher', 40, '40 Fisher Price Road', 5883473, 'james', 'fisherprice', 'james@fisher.com', true);
 
 insert into store (storeId, name, location, phone) values (STORE_SEQ.nextval, 'Perfect Perfumes Westfield', 'Westfield', 45693847);
 

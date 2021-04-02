@@ -96,6 +96,15 @@ class UserTest {
 		int numberOfUsersAfterCreationOfInvalidUser = userService.retrieveAll().size(); 
 		assertEquals(numberOfUsersBeforeCreation, numberOfUsersAfterCreationOfInvalidUser);
 	}
+	
+	@Test
+	void test_ThatAUserCanOnlyBeCreatedIfTheirUsernameIsUnique() {
+		int numberOfUsersBeforeFailedAttemptAtCreatingInvalidUser = userService.retrieveAll().size();
+		User user = new User("Billy", "Thorton", 50, "The Grapevine", 4859483, "billy", "billybob", "billy@thorton.com", true);
+		userService.create(user);
+		int numberOfUsersAfterFailedAttemptAtCreatingInvalidUser = userService.retrieveAll().size();
+		assertEquals(numberOfUsersBeforeFailedAttemptAtCreatingInvalidUser, numberOfUsersAfterFailedAttemptAtCreatingInvalidUser);
+	}
 
 
 

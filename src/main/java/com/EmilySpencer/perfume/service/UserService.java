@@ -32,6 +32,11 @@ public class UserService {
 				LOGGER.error("Unable to create account. Invalid card number");
 				break createUser;
 			}
+			String username = user.getUsername();
+			if (userDao.getByUsername(username).size() > 0) {
+				LOGGER.error("Username is taken. Please enter a different username");
+				break createUser;
+			}
 			userDao.save(user);
 		}
 	}
