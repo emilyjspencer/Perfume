@@ -67,4 +67,11 @@ public class PerfumeController {
 		model.addAttribute("message", "perfume " + perfume.getName() + " has been updated");
 		return new ModelAndView("forward://WEB-INF/allPerfumes.jsp", "allPerfumes", perfumeService.retrieveAll());
 	}
+	
+	@PostMapping(value = "/EditPerfumeSubmit", params = { "Delete=Delete" })
+	public ModelAndView editPerfumeSubmit(Perfume perfume, Model model, Long perfumeId) {
+		perfumeService.delete(perfumeId);
+		model.addAttribute("message", "Perfume was deleted");
+		return new ModelAndView("forward://WEB-INF/allPerfumes.jsp", "allPerfumes", perfumeService.retrieveAll());
+	}
 }

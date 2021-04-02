@@ -144,6 +144,7 @@ form {
 		<sf:hidden path="perfumeId" value="${perfumeId}" />
 		<div>
 			<input type="submit" value="edit perfume" /> 
+			<input type="submit"value="delete perfume" />
 		</div>
 	</sf:form>
 </body>
