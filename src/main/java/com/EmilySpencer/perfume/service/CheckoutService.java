@@ -35,5 +35,9 @@ public class CheckoutService {
 	public void delete(long checkoutId) {
 		checkoutDao.deleteById(checkoutId);
 	}
+	
+	public void update(Checkout checkout) {
+		checkoutDao.save(checkout);
+	}
 
 }

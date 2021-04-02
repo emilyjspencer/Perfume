@@ -56,4 +56,15 @@ public class CheckoutTest {
 		int numberAfterDeleting = checkoutService.retrieveAll().size();
 		assertNotEquals(numberBeforeDeleting, numberAfterDeleting);
 	}
+	
+	@Test
+	void test_ThatACheckoutCanBeUpdated() {
+		Checkout checkoutToUpdate = checkoutService.findACheckout(1).get();
+		Basket basketBeforeUpdating = checkoutToUpdate.getBasket();
+		checkoutToUpdate.setBasket(basketService.findABasket(1).get());
+		checkoutService.update(checkoutToUpdate);
+		Checkout updatedCheckout = checkoutService.findACheckout(1).get();
+		Basket basketAfterUpdating = updatedCheckout.getBasket();
+		assertNotEquals(basketBeforeUpdating, basketAfterUpdating);
+	}
 }
