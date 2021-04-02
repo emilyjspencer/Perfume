@@ -2,6 +2,9 @@ package com.EmilySpencer.perfume;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,6 +19,8 @@ public class BasketTest {
 
 	@Autowired
 	private BasketService basketService;
+	
+	List<Basket> basketList = new ArrayList<Basket>();
 
 	@Test
 	void test_ThatABasketCanBeCreated() {
@@ -29,5 +34,12 @@ public class BasketTest {
 		Basket basketFromDb = basketService.findABasket(1).get();
 		assertEquals(basketFromDb.getBasketId(), 1);
 	}
+	
+	@Test
+	void test_ThatAllBasketsCanBeRetrieved() {
+		basketList = basketService.retrieveAll();
+		assertTrue(basketList.size() > 0);
+	}
+
 
 }

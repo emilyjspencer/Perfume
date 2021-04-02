@@ -1,5 +1,6 @@
 package com.EmilySpencer.perfume.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,9 @@ public class BasketService {
 	
 	public Optional<Basket> findABasket(long basketId) {
 		return basketDao.findById(basketId);
+	}
+	
+	public List<Basket> retrieveAll() {
+		return basketDao.findAll();
 	}
 }
