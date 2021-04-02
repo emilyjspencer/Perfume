@@ -2,8 +2,11 @@ package com.EmilySpencer.perfume.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -50,4 +53,18 @@ public class PerfumeController {
 		return new ModelAndView("WEB-INF/allPerfumes.jsp", "allPerfumes", perfumeService.retrieveAll());
 	}
 
+	@GetMapping("/EditPerfume/{perfumeId}")
+	public ModelAndView editPerfume(@PathVariable("perfumeId") Long perfumeId, Model model) {
+		model.addAttribute("perfume", perfumeService.retrieveOne(perfumeId).get());
+		model.addAttribute("allBrands", brandService.retrieveAll());
+		model.addAttribute("allStores", storeService.retrieveAll());
+		return new ModelAndView("../WEB-INF/editPerfume.jsp", "perfume", perfumeService.retrieveOne(perfumeId));
+	}
+
+	@PostMapping("/EditPerfumeSubmit")
+	public ModelAndView editPerfumeSubmit(@ModelAttribute("perfume") Perfume perfume, Model model) {
+		perfumeService.update(perfume);
+		model.addAttribute("message", "perfume " + perfume.getName() + " has been updated");
+		return new ModelAndView("forward://WEB-INF/allPerfumes.jsp", "allPerfumes", perfumeService.retrieveAll());
+	}
 }
